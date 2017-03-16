@@ -35,3 +35,16 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+.idea/ionic2-pincode-input.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml
+hooks/
+plugins/
+platforms/
+resources/
+tsconfig.json
+tslint.json
+www/

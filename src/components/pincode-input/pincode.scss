@@ -1,0 +1,121 @@
+@import "ionic.globals";
+
+ion-alert {
+
+  z-index: $z-index-overlay;
+
+  display: flex;
+
+}
+
+
+.pincode-wrapper {
+
+  z-index: $z-index-overlay-wrapper;
+  position: absolute;
+  bottom:0;
+  left: 0;
+  right: 0;
+
+  display: block;
+  overflow: hidden;
+
+  width:100%;
+  max-width: 500px;
+  height: 295px;
+  margin: auto;
+
+
+
+  background-color: #fcfcfc;
+  border-top: 1px solid #c8c7cc;
+
+  contain: content;
+}
+
+
+.pincode-toolbar {
+  z-index: 1;
+  width: 100%;
+  contain: strict;
+  display: block;
+  height: 44px;
+  border-bottom: 0.55px solid #c8c7cc;
+  background: #fff;
+
+  button{
+    margin: 0;
+    height: 44px;
+    color: #387ef5;
+    background: transparent;
+    z-index: 1;
+  }
+
+  .pincode-title{
+    text-align: center;
+    width: 100%;
+    line-height: 44px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+}
+
+.pincode-input {
+  margin: 16px;
+
+  .pincode-input-grid{
+    border: 1px solid #e4e4e4;
+  }
+
+  .pincode-input-row{
+    text-align: center;
+
+    ion-col{
+      border-left: 1px solid #e4e4e4;
+      height: 32px;
+      line-height:32px;
+      padding: 0;
+
+      span.on{
+        width: 1em;
+        height: 1em;
+        border-radius: 1em;
+        background-color: #333;
+        display: inline-block;
+      }
+    }
+
+  }
+
+}
+
+.pincode-button-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  //height: 360px;
+  .grid{
+    padding: 0;
+  }
+  ion-col{
+    padding: 0;
+
+    button{
+      border:none;
+      margin: 0;
+      width: 100%;
+      background-color: #fff;
+      color: #000;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+  }
+}
+
+
+
