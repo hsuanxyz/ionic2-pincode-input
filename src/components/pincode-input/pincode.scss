@@ -46,9 +46,16 @@ ion-alert {
   button{
     margin: 0;
     height: 44px;
-    color: #387ef5;
     background: transparent;
     z-index: 1;
+  }
+
+  .r-btn{
+    float: right;
+    text-align: left;
+    font-size: 12px;
+    text-transform: none;
+    font-weight: 400;
   }
 
   .pincode-title{

@@ -18,10 +18,13 @@ export class HomePage {
   }
 
   openPinCode():any{
-    this.alertCtrl.create({
-      title:'请输入密码'
-    })
-      .present()
+    let pincode = this.alertCtrl.create();
+    pincode.present();
+    pincode.onDidDismiss( (res,s) => {
+      console.log(res)
+      console.log(s)
+    });
+
   }
 
 }

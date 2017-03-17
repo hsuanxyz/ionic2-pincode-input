@@ -22,7 +22,7 @@ export class PinCode extends ViewController {
         !!opts.hideForgotPassword : false;
     opts.title = opts.title || 'Password';
     opts.cancelButtonText = opts.cancelButtonText || 'cancel';
-    opts.forgotPasswordText = opts.forgotPasswordText || '';
+    opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';
     super(PincodeCmp, opts, null);
     this._app = app;
     this.isOverlay = true;

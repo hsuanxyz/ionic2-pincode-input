@@ -23,8 +23,9 @@ import { assert,isNumber } from 'ionic-angular/util/util';
     '<div class="pincode-wrapper"  [@openClose]="stateExpression">' +
 
     '   <div class="pincode-toolbar"> ' +
-    '     <button ion-button clear>{{d.cancelButtonText}}</button>' +
+    '     <button ion-button clear (click)="cancelClick()">{{d.cancelButtonText}}</button>' +
     '      <div class="pincode-title">{{d.title}}</div>' +
+    '     <button ion-button clear small  class="r-btn" (click)="cancelClick()">{{d.forgotPasswordText}}</button>' +
     '   </div>' +
 
     '   <div class="pincode-input">' +
@@ -74,7 +75,6 @@ import { assert,isNumber } from 'ionic-angular/util/util';
 })
 export class PincodeCmp {
   descId: string;
-  autoInterval:any;
   stateExpression:string  = 'off';
   d: {
     cssClass?: string;
@@ -104,8 +104,6 @@ export class PincodeCmp {
   ) {
     this.gestureBlocker = gestureCtrl.createBlocker(BLOCK_ALL);
     this.d = params.data;
-
-    console.log(this.d)
 
     this.mode = config.get('mode');
     _renderer.setElementClass(_elementRef.nativeElement, `pincode-${this.mode}`, true);
@@ -149,7 +147,7 @@ export class PincodeCmp {
       this.codeArr.push(num);
     }else if(this.codeArr.length === this.maxLen -1){
       this.codeArr.push(num);
-      console.log('done');
+      this.dismiss('inputDone')
     }
   }
 
@@ -162,7 +160,6 @@ export class PincodeCmp {
   }
 
   btnClick(button: any) {
-    clearInterval(this.autoInterval);
 
     if (!this.enabled) {
       return;
@@ -204,6 +201,9 @@ export class PincodeCmp {
     }
   }
 
+  cancelClick(){
+    this.dismiss('cancel');
+  }
 
   dismiss(role: any): Promise<any> {
     this.stateExpression = 'off';
@@ -214,9 +214,12 @@ export class PincodeCmp {
     return this._viewCtrl.dismiss(this.getValues(), role, opts);
   }
 
-  getValues(): any {
+  getValues(): string {
 
-    let values = '';
+    let values:string = '';
+    this.codeArr.forEach( (e) => {
+      values += e.toString();
+    });
     return values;
   }
 
