@@ -6,6 +6,8 @@ import { isPresent } from 'ionic-angular/util/util';
 import { NavOptions } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 
+import { PincodeOpt } from './pincode-options'
+
 
 /**
  * @private
@@ -13,12 +15,14 @@ import { ViewController } from 'ionic-angular';
 export class PinCode extends ViewController {
   private _app: App;
 
-  constructor(app: App, opts: any = {}) {
-    opts.inputs = opts.inputs || [];
-    opts.buttons = opts.buttons || [];
+  constructor(app: App, opts: PincodeOpt = {}) {
     opts.enableBackdropDismiss = isPresent(opts.enableBackdropDismiss) ?
       !!opts.enableBackdropDismiss : true;
-
+    opts.hideForgotPassword = isPresent(opts.hideForgotPassword) ?
+        !!opts.hideForgotPassword : false;
+    opts.title = opts.title || 'Password';
+    opts.cancelButtonText = opts.cancelButtonText || 'cancel';
+    opts.forgotPasswordText = opts.forgotPasswordText || '';
     super(PincodeCmp, opts, null);
     this._app = app;
     this.isOverlay = true;

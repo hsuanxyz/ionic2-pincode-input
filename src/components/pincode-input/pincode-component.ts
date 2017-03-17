@@ -22,8 +22,8 @@ import { assert } from 'ionic-angular/util/util';
     '<div class="pincode-wrapper"  [@openClose]="stateExpression">' +
 
     '   <div class="pincode-toolbar"> ' +
-    '     <button ion-button clear>取消</button>' +
-    '      <div class="pincode-title">请输入密码</div>' +
+    '     <button ion-button clear>{{d.cancelButtonText}}</button>' +
+    '      <div class="pincode-title">{{d.title}}</div>' +
     '   </div>' +
 
     '   <div class="pincode-input">' +
@@ -79,6 +79,9 @@ export class PincodeCmp {
     cssClass?: string;
     title?: string;
     enableBackdropDismiss?: boolean;
+    cancelButtonText?:string;
+    forgotPasswordText?:string;
+    hideForgotPassword?:boolean;
   };
   enabled: boolean;
   hdrId: string;
@@ -98,6 +101,9 @@ export class PincodeCmp {
   ) {
     this.gestureBlocker = gestureCtrl.createBlocker(BLOCK_ALL);
     this.d = params.data;
+
+    console.log(this.d)
+
     this.mode = config.get('mode');
     _renderer.setElementClass(_elementRef.nativeElement, `pincode-${this.mode}`, true);
 

@@ -18,7 +18,9 @@ export class HomePage {
   }
 
   openPinCode():any{
-    this.alertCtrl.create()
+    this.alertCtrl.create({
+      title:'请输入密码'
+    })
       .present()
   }
 
