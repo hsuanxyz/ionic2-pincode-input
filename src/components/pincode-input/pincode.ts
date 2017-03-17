@@ -57,7 +57,7 @@ export class PincodeController {
 
   constructor(private _app: App) {}
 
-  create(opts: any = {}): PinCode {
+  create(opts: PincodeOpt = {}): PinCode {
     return new PinCode(this._app, opts);
   }
 

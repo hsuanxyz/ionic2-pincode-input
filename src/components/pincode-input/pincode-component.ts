@@ -59,9 +59,13 @@ import { assert,isNumber } from 'ionic-angular/util/util';
     '         <ion-col><button ion-button color="light" (click)="numClick(9)">9</button></ion-col>' +
     '       </ion-row>' +
     '       <ion-row> ' +
-    '         <ion-col><button ion-button color="light" icon-only (click)="restoreClick()"><ion-icon name="ios-refresh"></ion-icon></button></ion-col>' +
+    '         <ion-col><button ion-button color="light" icon-only (click)="restoreClick()">' +
+    '           <ion-icon ios="ios-refresh"  name="md-refresh">' +
+    '         </ion-icon></button></ion-col>' +
     '         <ion-col><button ion-button color="light" (click)="numClick(0)">0</button></ion-col>' +
-    '         <ion-col><button ion-button color="light" icon-only (click)="delClick()"><ion-icon name="ios-backspace"></ion-icon></button></ion-col>' +
+    '         <ion-col><button ion-button color="light" icon-only (click)="delClick()">' +
+    '           <ion-icon ios="ios-backspace"  name="md-backspace">' +
+    '         </ion-icon></button></ion-col>' +
     '       </ion-row>' +
     '     </ion-grid>' +
     '   </div>' +
