@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { App } from 'ionic-angular';
 import { PincodeCmp } from './pincode-component';
-import { isPresent } from 'ionic-angular/util/util';
+import {isPresent, isFunction} from 'ionic-angular/util/util';
 import { NavOptions } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 
@@ -20,6 +20,7 @@ export class PinCode extends ViewController {
       !!opts.enableBackdropDismiss : true;
     opts.hideForgotPassword = isPresent(opts.hideForgotPassword) ?
         !!opts.hideForgotPassword : false;
+    opts.encoded = isFunction(opts.encoded) ? opts.encoded : (c) => { return c };
     opts.title = opts.title || 'Password';
     opts.cancelButtonText = opts.cancelButtonText || 'cancel';
     opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';

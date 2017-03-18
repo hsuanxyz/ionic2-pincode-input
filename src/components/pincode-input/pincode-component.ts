@@ -87,6 +87,7 @@ export class PincodeCmp {
     cancelButtonText?:string;
     forgotPasswordText?:string;
     hideForgotPassword?:boolean;
+    encoded?:Function;
   };
   codeArr:Array<number> = [];
   maxLen : number = 6;
@@ -224,7 +225,8 @@ export class PincodeCmp {
     this.codeArr.forEach( (e) => {
       values += e.toString();
     });
-    return values;
+
+    return this.d.encoded(values);
   }
 
   ngOnDestroy() {

@@ -9,7 +9,7 @@ import { PincodeController } from  '../../components/pincode-input/pincode'
 })
 export class HomePage {
 
-  color:string = '#e00';
+  code:string = '#';
 
   constructor(
     public navCtrl: NavController,
@@ -21,12 +21,16 @@ export class HomePage {
     let pincode = this.alertCtrl.create({
       title:'请输入密码',
       cancelButtonText:'取消',
-      forgotPasswordText:'忘记密码'
+      forgotPasswordText:'忘记密码',
+      encoded: (e) => {
+        return `HELLO${e}`
+      }
     });
     pincode.present();
     pincode.onDidDismiss( (res,s) => {
-      console.log(res)
-      console.log(s)
+      console.log(`密码:${res}`);
+      this.code = res;
+      // console.log(s)
     });
 
   }
