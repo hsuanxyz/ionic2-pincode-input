@@ -1,1 +1,1 @@
-{"__symbolic":"module","version":1,"metadata":{},"exports":[{"from":"./pincode.module","export":["PincodeInputModule"]},{"from":"./pincode","export":["PinCode","PincodeController"]}]}
+{"__symbolic":"module","version":1,"metadata":{},"exports":[{"from":"./pincode-options"},{"from":"./pincode","export":["PinCode","PincodeController"]},{"from":"./pincode-component","export":["PincodeCmp"]},{"from":"./pincode.module","export":["PincodeInputModule"]}]}
