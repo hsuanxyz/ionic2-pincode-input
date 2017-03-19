@@ -45,6 +45,5 @@ hooks/
 plugins/
 platforms/
 resources/
-tsconfig.json
-tslint.json
 www/
+aot/

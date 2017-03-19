@@ -20,7 +20,7 @@ export class PinCode extends ViewController {
       !!opts.enableBackdropDismiss : true;
     opts.hideForgotPassword = isPresent(opts.hideForgotPassword) ?
         !!opts.hideForgotPassword : false;
-    opts.encoded = isFunction(opts.encoded) ? opts.encoded : (c) => { return c };
+    opts.encoded = isFunction(opts.encoded) ? opts.encoded : (c:string):string => { return c };
     opts.title = opts.title || 'Password';
     opts.cancelButtonText = opts.cancelButtonText || 'cancel';
     opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';

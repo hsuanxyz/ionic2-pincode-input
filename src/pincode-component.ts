@@ -1,4 +1,3 @@
-///<reference path="../../../node_modules/ionic-angular/util/util.d.ts"/>
 import { Component, ElementRef, Renderer, ViewEncapsulation, trigger, state, animate, transition, style } from '@angular/core';
 
 import { Config } from 'ionic-angular/config/config';
