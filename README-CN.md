@@ -3,13 +3,13 @@
 [![Dependency Status](https://david-dm.org/HsuanXyz/ionic2-pincode-input.svg)](https://david-dm.org/HsuanXyz/ionic2-pincode-input)
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][downloads-url] [![MIT License][license-image]][license-url]
 
-A pin-code input for ionic2
+一个ionic2的PIN码输入组件
 
-## install
+## 安装
 
 `npm install ionic2-pincode-input --save`
 
-## use
+## 使用
 
 app.module.ts
 ```typescript
@@ -70,11 +70,10 @@ export class HomePage {
     pinCode.onDidDismiss( (code,status) => {
 
       if(status === 'done'){
-
+        // 输入完成
         this.code = code;
       }else if (status === 'forgot'){
-
-        // forgot password
+        // 忘记密码
       }
 
     })
@@ -91,12 +90,12 @@ export class HomePage {
 ### PincodeOpt
 | Name            | Type          | Default       | Description |
 | --------------- | ------------- | ------------- | ----------- |
-| title           | String        | `'password'`  | title       |
-| cancelButtonText| String        | `'cancel'`    | cancel button text    |
-| encoded         | Function      | ` (c) => {return c} ` | your encoded pin code function |
-| forgotPasswordText| String      | `'forgot password'`| forgot password text    |
-| hideForgotPassword| Boolean     | `false`       | is hide forgot password button   |
-| enableBackdropDismiss| Boolean     | `true`       | Whether the alert should be dismissed by tapping the backdrop.  |
+| title           | String        | `'password'`  | 标题       |
+| cancelButtonText| String        | `'cancel'`    | 取消按钮文字    |
+| encoded         | Function      | ` (c) => {return c} ` | 用于在返回code前编码的函数 |
+| forgotPasswordText| String      | `'forgot password'`| 忘记密码的文字    |
+| hideForgotPassword| Boolean     | `false`       | 是否隐藏忘记密码   |
+| enableBackdropDismiss| Boolean     | `true`       | 是否可以点击遮罩关闭组件  |
 
 [npm-url]: https://www.npmjs.com/package/ionic2-pincode-input
 [npm-image]: https://img.shields.io/npm/v/ionic2-pincode-input.svg
