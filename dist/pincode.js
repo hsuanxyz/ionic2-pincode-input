@@ -3,13 +3,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 import { Injectable } from '@angular/core';
+import { App } from 'ionic-angular';
 import { PincodeCmp } from './pincode-component';
 import { isPresent, isFunction } from 'ionic-angular/util/util';
 import { ViewController } from 'ionic-angular';
@@ -60,9 +55,13 @@ export var PincodeController = (function () {
         if (opts === void 0) { opts = {}; }
         return new PinCode(this._app, opts);
     };
-    PincodeController = __decorate([
-        Injectable()
-    ], PincodeController);
+    PincodeController.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    PincodeController.ctorParameters = [
+        { type: App, },
+    ];
     return PincodeController;
 }());
 //# sourceMappingURL=pincode.js.map

@@ -41,6 +41,7 @@ export declare class PincodeCmp {
     isNum(num: any): boolean;
     bdClick(): void;
     cancelClick(): void;
+    forgotClick(): void;
     dismiss(role: any): Promise<any>;
     getValues(): string;
     ngOnDestroy(): void;

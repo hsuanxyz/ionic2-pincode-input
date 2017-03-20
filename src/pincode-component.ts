@@ -24,7 +24,7 @@ import { assert,isNumber } from 'ionic-angular/util/util';
     '   <div class="pincode-toolbar"> ' +
     '     <button ion-button clear (click)="cancelClick()">{{d.cancelButtonText}}</button>' +
     '      <div class="pincode-title">{{d.title}}</div>' +
-    '     <button ion-button clear small  class="r-btn" (click)="cancelClick()">{{d.forgotPasswordText}}</button>' +
+    '     <button ion-button clear small  class="r-btn" (click)="forgotClick()">{{d.forgotPasswordText}}</button>' +
     '   </div>' +
 
     '   <div class="pincode-input">' +
@@ -232,9 +232,7 @@ export class PincodeCmp {
   }
 
   ionViewDidLoad() {
-    // normalize the data
     this.stateExpression = 'on';
-    const data = this.d;
   }
 
   ionViewWillEnter() {
@@ -262,7 +260,7 @@ export class PincodeCmp {
       this.codeArr.push(num);
     }else if(this.codeArr.length === this.maxLen -1){
       this.codeArr.push(num);
-      this.dismiss('inputDone')
+      this.dismiss('done')
     }
   }
 
@@ -318,6 +316,10 @@ export class PincodeCmp {
 
   cancelClick(){
     this.dismiss('cancel');
+  }
+
+  forgotClick(){
+    this.dismiss('forgot');
   }
 
   dismiss(role: any): Promise<any> {
