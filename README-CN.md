@@ -5,6 +5,7 @@
 
 一个ionic2的PIN码输入组件
 
+![v](https://github.com/HsuanXyz/hsuanxyz.github.io/blob/master/assets/ionic2-pincode-input/pin-code.gif?raw=true)
 ## 安装
 
 `npm install ionic2-pincode-input --save`
