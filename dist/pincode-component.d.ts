@@ -16,6 +16,7 @@ export declare class PincodeCmp {
         title?: string;
         enableBackdropDismiss?: boolean;
         cancelButtonText?: string;
+        hideCancelButton?: boolean;
         forgotPasswordText?: string;
         hideForgotPassword?: boolean;
         encoded?: Function;

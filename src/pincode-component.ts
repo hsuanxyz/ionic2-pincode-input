@@ -22,9 +22,9 @@ import { assert,isNumber } from 'ionic-angular/util/util';
     '<div class="pincode-wrapper"  [@openClose]="stateExpression">' +
 
     '   <div class="pincode-toolbar"> ' +
-    '     <button ion-button clear (click)="cancelClick()">{{d.cancelButtonText}}</button>' +
+    '     <button *ngIf="!d.hideCancelButton" ion-button clear (click)="cancelClick()">{{d.cancelButtonText}}</button>' +
     '      <div class="pincode-title">{{d.title}}</div>' +
-    '     <button ion-button clear small  class="r-btn" (click)="forgotClick()">{{d.forgotPasswordText}}</button>' +
+    '     <button *ngIf="!d.hideForgotPassword" ion-button clear small  class="r-btn" (click)="forgotClick()">{{d.forgotPasswordText}}</button>' +
     '   </div>' +
 
     '   <div class="pincode-input">' +
@@ -80,7 +80,7 @@ import { assert,isNumber } from 'ionic-angular/util/util';
         z-index: 1000;
         display: flex;
       }
-      
+
       .pincode-wrapper {
         z-index: 10;
         position: absolute;
@@ -97,11 +97,11 @@ import { assert,isNumber } from 'ionic-angular/util/util';
         border-top: 1px solid #c8c7cc;
         contain: content;
       }
-      
+
       .pincode-md .pincode-wrapper, .pincode-wp .pincode-wrapper {
         background-color: #fff;
       }
-      
+
       .pincode-toolbar {
         z-index: 1;
         width: 100%;
@@ -134,11 +134,11 @@ import { assert,isNumber } from 'ionic-angular/util/util';
         top: 0;
         bottom: 0;
       }
-      
+
       .pincode-md .pincode-toolbar, .pincode-wp .pincode-toolbar {
         border-bottom: none;
       }
-      
+
       .pincode-input {
         margin: 16px;
       }
@@ -161,7 +161,7 @@ import { assert,isNumber } from 'ionic-angular/util/util';
         background-color: #333;
         display: inline-block;
       }
-      
+
       .pincode-button-wrapper {
         position: absolute;
         width: 100%;
@@ -195,6 +195,7 @@ export class PincodeCmp {
     title?: string;
     enableBackdropDismiss?: boolean;
     cancelButtonText?:string;
+    hideCancelButton?:boolean;
     forgotPasswordText?:string;
     hideForgotPassword?:boolean;
     encoded?:Function;
@@ -346,4 +347,3 @@ export class PincodeCmp {
     this.gestureBlocker.destroy();
   }
 }
-
