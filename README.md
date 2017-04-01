@@ -102,6 +102,7 @@ export class HomePage {
 | encoded         | Function      | ` (c) => {return c} ` | your encoded pin code function |
 | forgotPasswordText| String      | `'forgot password'`| forgot password text    |
 | hideForgotPassword| Boolean     | `false`       | is hide forgot password button   |
+| hideCancelButton | Boolean     | `false`       | is hide cancel button   |
 | enableBackdropDismiss| Boolean     | `true`       | Whether the alert should be dismissed by tapping the backdrop.  |
 
 [npm-url]: https://www.npmjs.com/package/ionic2-pincode-input

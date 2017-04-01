@@ -95,7 +95,8 @@ export class HomePage {
 | cancelButtonText| String        | `'cancel'`    | 取消按钮文字    |
 | encoded         | Function      | ` (c) => {return c} ` | 用于在返回code前编码的函数 |
 | forgotPasswordText| String      | `'forgot password'`| 忘记密码的文字    |
-| hideForgotPassword| Boolean     | `false`       | 是否隐藏忘记密码   |
+| hideForgotPassword| Boolean     | `false`       | 隐藏忘记密码按钮   |
+| hideCancelButton | Boolean     | `false`       | 隐藏取消按钮  |
 | enableBackdropDismiss| Boolean     | `true`       | 是否可以点击遮罩关闭组件  |
 
 [npm-url]: https://www.npmjs.com/package/ionic2-pincode-input
