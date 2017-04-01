@@ -28,6 +28,7 @@ export class PinCode extends ViewController {
     opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';
     super(PincodeCmp, opts, null);
     this._app = app;
+    //noinspection TypeScriptUnresolvedVariable
     this.isOverlay = true;
   }
 
@@ -36,14 +37,17 @@ export class PinCode extends ViewController {
   */
   getTransitionName(direction: string) {
     let key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
+    //noinspection TypeScriptUnresolvedVariable
     return this._nav && this._nav.config.get(key);
   }
 
   setTitle(title: string) {
+    //noinspection TypeScriptUnresolvedVariable
     this.data.title = title;
   }
 
   setCssClass(cssClass: string) {
+    //noinspection TypeScriptUnresolvedVariable
     this.data.cssClass = cssClass;
   }
 
