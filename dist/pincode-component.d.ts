@@ -1,6 +1,5 @@
 import { ElementRef, Renderer } from '@angular/core';
-import { Config } from 'ionic-angular/config/config';
-import { GestureController, BlockerDelegate, ViewController, Platform, NavParams } from 'ionic-angular';
+import { GestureController, BlockerDelegate, ViewController, Platform, NavParams, Config } from 'ionic-angular';
 /**
  * @private
  */

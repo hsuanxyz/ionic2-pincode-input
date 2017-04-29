@@ -1,7 +1,6 @@
 import { Component, ElementRef, Renderer, ViewEncapsulation, trigger, state, animate, transition, style } from '@angular/core';
-import { Config } from 'ionic-angular/config/config';
-import { GestureController, BLOCK_ALL, ViewController, Platform, NavParams } from 'ionic-angular';
-import { assert, isNumber } from 'ionic-angular/util/util';
+import { GestureController, BLOCK_ALL, ViewController, Platform, NavParams, Config } from 'ionic-angular';
+import { assert, isNumber } from "ionic-angular/util/util";
 /**
  * @private
  */
@@ -127,62 +126,12 @@ export var PincodeCmp = (function () {
                             transition('on <=> off', [animate("400ms cubic-bezier(.36,.66,.04,1)")])
                         ])
                     ],
-                    template: '<ion-backdrop (click)="bdClick()" [class.backdrop-no-tappable]="!d.enableBackdropDismiss"></ion-backdrop>' +
-                        '<div class="pincode-wrapper"  [@openClose]="stateExpression">' +
-                        '   <div class="pincode-toolbar"> ' +
-                        '     <button *ngIf="!d.hideCancelButton" ion-button clear (click)="cancelClick()">{{d.cancelButtonText}}</button>' +
-                        '      <div class="pincode-title">{{d.title}}</div>' +
-                        '     <button *ngIf="!d.hideForgotPassword" ion-button clear small  class="r-btn" (click)="forgotClick()">{{d.forgotPasswordText}}</button>' +
-                        '   </div>' +
-                        '   <div class="pincode-input">' +
-                        '     <ion-grid class="pincode-input-grid">' +
-                        '       <ion-row class="pincode-input-row">' +
-                        '         <ion-col style="border-left: 0;"><span [class.on]="isNum(codeArr[0])"></span></ion-col>' +
-                        '         <ion-col> <span [class.on]="isNum(codeArr[1])"></span></ion-col>' +
-                        '         <ion-col> <span [class.on]="isNum(codeArr[2])"></span></ion-col>' +
-                        '         <ion-col> <span [class.on]="isNum(codeArr[3])"></span></ion-col>' +
-                        '         <ion-col> <span [class.on]="isNum(codeArr[4])"></span></ion-col>' +
-                        '         <ion-col> <span [class.on]="isNum(codeArr[5])"></span></ion-col>' +
-                        '       </ion-row>' +
-                        '     </ion-grid>' +
-                        '   </div>' +
-                        '   <div class="pincode-button-wrapper">' +
-                        '     <ion-grid> ' +
-                        '       <ion-row> ' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(1)">1</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(2)">2</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(3)">3</button></ion-col>' +
-                        '       </ion-row>' +
-                        '       <ion-row> ' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(4)">4</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(5)">5</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(6)">6</button></ion-col>' +
-                        '       </ion-row>' +
-                        '       <ion-row> ' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(7)">7</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(8)">8</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(9)">9</button></ion-col>' +
-                        '       </ion-row>' +
-                        '       <ion-row> ' +
-                        '         <ion-col><button ion-button color="light" icon-only (click)="restoreClick()">' +
-                        '           <ion-icon ios="ios-refresh"  name="md-refresh">' +
-                        '         </ion-icon></button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" (click)="numClick(0)">0</button></ion-col>' +
-                        '         <ion-col><button ion-button color="light" icon-only (click)="delClick()">' +
-                        '           <ion-icon ios="ios-backspace"  name="md-backspace">' +
-                        '         </ion-icon></button></ion-col>' +
-                        '       </ion-row>' +
-                        '     </ion-grid>' +
-                        '   </div>' +
-                        '</div>',
+                    template: "\n      <ion-backdrop (click)=\"bdClick()\" [class.backdrop-no-tappable]=\"!d.enableBackdropDismiss\"></ion-backdrop>\n      <div class=\"pincode-wrapper\" [@openClose]=\"stateExpression\">\n          <div class=\"pincode-toolbar\">\n              <button *ngIf=\"!d.hideCancelButton\" ion-button clear (click)=\"cancelClick()\">{{d.cancelButtonText}}</button>\n              <div class=\"pincode-title\">{{d.title}}</div>\n              <button *ngIf=\"!d.hideForgotPassword\" ion-button clear small class=\"r-btn\" (click)=\"forgotClick()\">{{d.forgotPasswordText}}</button>\n          </div>\n          <div class=\"pincode-input\">\n              <ion-grid class=\"pincode-input-grid\">\n                  <ion-row class=\"pincode-input-row\">\n                      <ion-col style=\"border-left: 0;\"><span [class.on]=\"isNum(codeArr[0])\"></span></ion-col>\n                      <ion-col><span [class.on]=\"isNum(codeArr[1])\"></span></ion-col>\n                      <ion-col><span [class.on]=\"isNum(codeArr[2])\"></span></ion-col>\n                      <ion-col><span [class.on]=\"isNum(codeArr[3])\"></span></ion-col>\n                      <ion-col><span [class.on]=\"isNum(codeArr[4])\"></span></ion-col>\n                      <ion-col><span [class.on]=\"isNum(codeArr[5])\"></span></ion-col>\n                  </ion-row>\n              </ion-grid>\n          </div>\n          <div class=\"pincode-button-wrapper\">\n              <ion-grid>\n                  <ion-row>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(1)\">1</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(2)\">2</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(3)\">3</button>\n                      </ion-col>\n                  </ion-row>\n                  <ion-row>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(4)\">4</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(5)\">5</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(6)\">6</button>\n                      </ion-col>\n                  </ion-row>\n                  <ion-row>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(7)\">7</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(8)\">8</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(9)\">9</button>\n                      </ion-col>\n                  </ion-row>\n                  <ion-row>\n                      <ion-col>\n                          <button ion-button color=\"light\" icon-only (click)=\"restoreClick()\">\n                              <ion-icon ios=\"ios-refresh\" name=\"md-refresh\"></ion-icon>\n                          </button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" (click)=\"numClick(0)\">0</button>\n                      </ion-col>\n                      <ion-col>\n                          <button ion-button color=\"light\" icon-only (click)=\"delClick()\">\n                              <ion-icon ios=\"ios-backspace\" name=\"md-backspace\"></ion-icon>\n                          </button>\n                      </ion-col>\n                  </ion-row>\n              </ion-grid>\n          </div>\n      </div>\n  ",
                     host: {
                         'role': 'dialog',
                         '[attr.aria-labelledby]': 'hdrId',
                         '[attr.aria-describedby]': 'descId'
                     },
-                    styles: [
-                        "\n      ion-alert {\n        z-index: 1000;\n        display: flex;\n      }\n\n      .pincode-wrapper {\n        z-index: 10;\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        display: block;\n        overflow: hidden;\n        width: 100%;\n        max-width: 500px;\n        height: 295px;\n        margin: auto;\n        background-color: #fcfcfc;\n        border-top: 1px solid #c8c7cc;\n        contain: content;\n      }\n\n      .pincode-md .pincode-wrapper, .pincode-wp .pincode-wrapper {\n        background-color: #fff;\n      }\n\n      .pincode-toolbar {\n        z-index: 1;\n        width: 100%;\n        contain: strict;\n        display: block;\n        height: 44px;\n        border-bottom: 0.55px solid #c8c7cc;\n        background: #fff;\n      }\n      .pincode-toolbar button {\n        margin: 0;\n        height: 44px;\n        background: transparent;\n        z-index: 1;\n      }\n      .pincode-toolbar .r-btn {\n        float: right;\n        text-align: left;\n        font-size: 12px;\n        text-transform: none;\n        font-weight: 400;\n      }\n      .pincode-toolbar .pincode-title {\n        text-align: center;\n        width: 100%;\n        line-height: 44px;\n        position: absolute;\n        left: 0;\n        right: 0;\n        top: 0;\n        bottom: 0;\n      }\n\n      .pincode-md .pincode-toolbar, .pincode-wp .pincode-toolbar {\n        border-bottom: none;\n      }\n\n      .pincode-input {\n        margin: 16px;\n      }\n      .pincode-input .pincode-input-grid {\n        border: 1px solid #e4e4e4;\n      }\n      .pincode-input .pincode-input-row {\n        text-align: center;\n      }\n      .pincode-input .pincode-input-row ion-col {\n        border-left: 1px solid #e4e4e4;\n        height: 32px;\n        line-height: 32px;\n        padding: 0;\n      }\n      .pincode-input .pincode-input-row ion-col span.on {\n        width: 1em;\n        height: 1em;\n        border-radius: 1em;\n        background-color: #333;\n        display: inline-block;\n      }\n\n      .pincode-button-wrapper {\n        position: absolute;\n        width: 100%;\n        bottom: 0;\n      }\n      .pincode-button-wrapper .grid {\n        padding: 0;\n      }\n      .pincode-button-wrapper ion-col {\n        padding: 0;\n      }\n      .pincode-button-wrapper ion-col button {\n        border: none;\n        margin: 0;\n        width: 100%;\n        background-color: #fff;\n        color: #000;\n        box-shadow: none;\n        border-radius: 0;\n      }\n\n    "
-                    ],
                     encapsulation: ViewEncapsulation.None,
                 },] },
     ];

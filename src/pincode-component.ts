@@ -13,11 +13,83 @@ import {assert, isNumber} from "ionic-angular/util/util";
       state('off, void', style({bottom: '-295px'})),
       state('on', style({bottom:'0'})),
       transition(
-        'on <=> off', [animate("400ms cubic-bezier(.36,.66,.04,1)")])
+          'on <=> off', [animate("400ms cubic-bezier(.36,.66,.04,1)")])
     ])
   ],
-  templateUrl: './pincode-component.html',
-  styleUrls:['./pincode-component.scss'],
+  template:`
+      <ion-backdrop (click)="bdClick()" [class.backdrop-no-tappable]="!d.enableBackdropDismiss"></ion-backdrop>
+      <div class="pincode-wrapper" [@openClose]="stateExpression">
+          <div class="pincode-toolbar">
+              <button *ngIf="!d.hideCancelButton" ion-button clear (click)="cancelClick()">{{d.cancelButtonText}}</button>
+              <div class="pincode-title">{{d.title}}</div>
+              <button *ngIf="!d.hideForgotPassword" ion-button clear small class="r-btn" (click)="forgotClick()">{{d.forgotPasswordText}}</button>
+          </div>
+          <div class="pincode-input">
+              <ion-grid class="pincode-input-grid">
+                  <ion-row class="pincode-input-row">
+                      <ion-col style="border-left: 0;"><span [class.on]="isNum(codeArr[0])"></span></ion-col>
+                      <ion-col><span [class.on]="isNum(codeArr[1])"></span></ion-col>
+                      <ion-col><span [class.on]="isNum(codeArr[2])"></span></ion-col>
+                      <ion-col><span [class.on]="isNum(codeArr[3])"></span></ion-col>
+                      <ion-col><span [class.on]="isNum(codeArr[4])"></span></ion-col>
+                      <ion-col><span [class.on]="isNum(codeArr[5])"></span></ion-col>
+                  </ion-row>
+              </ion-grid>
+          </div>
+          <div class="pincode-button-wrapper">
+              <ion-grid>
+                  <ion-row>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(1)">1</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(2)">2</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(3)">3</button>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(4)">4</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(5)">5</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(6)">6</button>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(7)">7</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(8)">8</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(9)">9</button>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                          <button ion-button color="light" icon-only (click)="restoreClick()">
+                              <ion-icon ios="ios-refresh" name="md-refresh"></ion-icon>
+                          </button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" (click)="numClick(0)">0</button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button color="light" icon-only (click)="delClick()">
+                              <ion-icon ios="ios-backspace" name="md-backspace"></ion-icon>
+                          </button>
+                      </ion-col>
+                  </ion-row>
+              </ion-grid>
+          </div>
+      </div>
+  ` ,
   host: {
     'role': 'dialog',
     '[attr.aria-labelledby]': 'hdrId',
@@ -48,13 +120,13 @@ export class PincodeCmp {
   gestureBlocker: BlockerDelegate;
 
   constructor(
-    public _viewCtrl: ViewController,
-    public _elementRef: ElementRef,
-    config: Config,
-    gestureCtrl: GestureController,
-    params: NavParams,
-    private _renderer: Renderer,
-    private _plt: Platform
+      public _viewCtrl: ViewController,
+      public _elementRef: ElementRef,
+      config: Config,
+      gestureCtrl: GestureController,
+      params: NavParams,
+      private _renderer: Renderer,
+      private _plt: Platform
   ) {
     this.gestureBlocker = gestureCtrl.createBlocker(BLOCK_ALL);
     this.d = params.data;
