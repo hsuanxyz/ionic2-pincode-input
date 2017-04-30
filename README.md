@@ -97,6 +97,7 @@ export class HomePage {
 ### PincodeOpt
 | Name            | Type          | Default       | Description |
 | --------------- | ------------- | ------------- | ----------- |
+| cssClass        | string        | `''`          | separated by spaces|
 | title           | String        | `'password'`  | title       |
 | cancelButtonText| String        | `'cancel'`    | cancel button text    |
 | encoded         | Function      | ` (c) => {return c} ` | your encoded pin code function |

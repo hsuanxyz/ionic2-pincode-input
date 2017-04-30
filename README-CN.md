@@ -91,6 +91,7 @@ export class HomePage {
 ### PincodeOpt
 | Name            | Type          | Default       | Description |
 | --------------- | ------------- | ------------- | ----------- |
+| cssClass        | string        | `''`          | 空格分开 |
 | title           | String        | `'password'`  | 标题       |
 | cancelButtonText| String        | `'cancel'`    | 取消按钮文字    |
 | encoded         | Function      | ` (c) => {return c} ` | 用于在返回code前编码的函数 |
