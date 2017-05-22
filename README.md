@@ -98,6 +98,7 @@ export class HomePage {
 | Name            | Type          | Default       | Description |
 | --------------- | ------------- | ------------- | ----------- |
 | cssClass        | string        | `''`          | separated by spaces|
+| passSize        | number        | `6`           | your password size|
 | title           | String        | `'password'`  | title       |
 | cancelButtonText| String        | `'cancel'`    | cancel button text    |
 | encoded         | Function      | ` (c) => {return c} ` | your encoded pin code function |

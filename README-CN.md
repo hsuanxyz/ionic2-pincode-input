@@ -92,6 +92,7 @@ export class HomePage {
 | Name            | Type          | Default       | Description |
 | --------------- | ------------- | ------------- | ----------- |
 | cssClass        | string        | `''`          | 空格分开 |
+| passSize        | number        | `6`           | 你的密码长度|
 | title           | String        | `'password'`  | 标题       |
 | cancelButtonText| String        | `'cancel'`    | 取消按钮文字    |
 | encoded         | Function      | ` (c) => {return c} ` | 用于在返回code前编码的函数 |
