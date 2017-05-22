@@ -19,6 +19,7 @@ export declare class PincodeCmp {
         forgotPasswordText?: string;
         hideForgotPassword?: boolean;
         encoded?: Function;
+        passSize?: number;
     };
     codeArr: Array<number>;
     maxLen: number;

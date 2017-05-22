@@ -27,12 +27,7 @@ import {assert, isNumber} from "ionic-angular/util/util";
           <div class="pincode-input">
               <ion-grid class="pincode-input-grid">
                   <ion-row class="pincode-input-row">
-                      <ion-col style="border-left: 0;"><span [class.on]="isNum(codeArr[0])"></span></ion-col>
-                      <ion-col><span [class.on]="isNum(codeArr[1])"></span></ion-col>
-                      <ion-col><span [class.on]="isNum(codeArr[2])"></span></ion-col>
-                      <ion-col><span [class.on]="isNum(codeArr[3])"></span></ion-col>
-                      <ion-col><span [class.on]="isNum(codeArr[4])"></span></ion-col>
-                      <ion-col><span [class.on]="isNum(codeArr[5])"></span></ion-col>
+                      <ion-col *ngFor="let item of codeArr; let i = index"> <span [class.on]="isNum(codeArr[i])"></span></ion-col>
                   </ion-row>
               </ion-grid>
           </div>
@@ -109,6 +104,7 @@ export class PincodeCmp {
     forgotPasswordText?:string;
     hideForgotPassword?:boolean;
     encoded?:Function;
+    passSize?:number;
   };
   codeArr:Array<number> = [];
   maxLen : number = 6;
@@ -130,7 +126,9 @@ export class PincodeCmp {
   ) {
     this.gestureBlocker = gestureCtrl.createBlocker(BLOCK_ALL);
     this.d = params.data;
-
+    this.d.passSize && ( this.maxLen = this.d.passSize);
+    this.codeArr = new Array(this.maxLen);
+      this.codeArr.fill(null);
     this.mode = config.get('mode');
     _renderer.setElementClass(_elementRef.nativeElement, `pincode-${this.mode}`, true);
 
@@ -166,11 +164,11 @@ export class PincodeCmp {
 
   numClick(num:number){
     if(num < 0 || num > 9) return;
-
-    if(this.codeArr.length < this.maxLen -1){
-      this.codeArr.push(num);
-    }else if(this.codeArr.length === this.maxLen -1){
-      this.codeArr.push(num);
+    const emptyIndex = this.codeArr.indexOf(null);
+    if(emptyIndex < this.maxLen -1){
+      this.codeArr[emptyIndex]= num;
+    }else if(emptyIndex === this.maxLen -1 ){
+      this.codeArr[emptyIndex] = num;
       this.dismiss('done')
     }
   }
@@ -246,7 +244,7 @@ export class PincodeCmp {
 
     let values:string = '';
     this.codeArr.forEach( (e) => {
-      values += e.toString();
+        e && (values += e.toString());
     });
 
     return this.d.encoded(values);

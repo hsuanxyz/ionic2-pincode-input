@@ -77,7 +77,12 @@ ion-pincode{
     height: 32px;
     line-height: 32px;
     padding: 0;
+
+    &:nth-child(1){
+      border-left: 0;
+    }
   }
+
 
   .pincode-input .pincode-input-row ion-col span.on {
     width: 1em;

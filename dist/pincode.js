@@ -25,6 +25,7 @@ export var PinCode = (function (_super) {
         opts.title = opts.title || 'Password';
         opts.cancelButtonText = opts.cancelButtonText || 'cancel';
         opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';
+        opts.passSize = opts.passSize || 6;
         _super.call(this, PincodeCmp, opts, null);
         this._app = app;
         //noinspection TypeScriptUnresolvedVariable

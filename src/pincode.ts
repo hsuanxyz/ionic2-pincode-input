@@ -26,6 +26,7 @@ export class PinCode extends ViewController {
     opts.title = opts.title || 'Password';
     opts.cancelButtonText = opts.cancelButtonText || 'cancel';
     opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';
+    opts.passSize = opts.passSize || 6;
     super(PincodeCmp, opts, null);
     this._app = app;
     //noinspection TypeScriptUnresolvedVariable

@@ -7,5 +7,6 @@ export interface PincodeOpt {
     hideForgotPassword?:boolean,
     enableBackdropDismiss?:boolean,
     cssClass?:string,
-    encoded?:Function
+    encoded?:Function,
+    passSize?:number
 }

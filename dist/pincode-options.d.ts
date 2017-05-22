@@ -7,4 +7,5 @@ export interface PincodeOpt {
     enableBackdropDismiss?: boolean;
     cssClass?: string;
     encoded?: Function;
+    passSize?: number;
 }
