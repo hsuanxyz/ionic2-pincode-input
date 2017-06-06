@@ -178,7 +178,8 @@ export class PincodeCmp {
   }
 
   restoreClick(){
-    this.codeArr = [];
+      this.codeArr = new Array(this.maxLen);
+      this.codeArr.fill(null);
   }
 
   btnClick(button: any) {

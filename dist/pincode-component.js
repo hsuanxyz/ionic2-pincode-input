@@ -60,7 +60,8 @@ export var PincodeCmp = (function () {
         this.codeArr.pop();
     };
     PincodeCmp.prototype.restoreClick = function () {
-        this.codeArr = [];
+        this.codeArr = new Array(this.maxLen);
+        this.codeArr.fill(null);
     };
     PincodeCmp.prototype.btnClick = function (button) {
         if (!this.enabled) {
