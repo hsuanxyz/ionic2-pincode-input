@@ -174,7 +174,14 @@ export class PincodeCmp {
   }
 
   delClick(){
-    this.codeArr.pop()
+    let i = this.codeArr.length -1;
+    for( i ; i > -1; i--){
+      if( this.codeArr[i] !== null) {
+        this.codeArr[i] = null;
+        break;
+      }
+    }
+
   }
 
   restoreClick(){

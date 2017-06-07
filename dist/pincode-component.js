@@ -57,7 +57,13 @@ export var PincodeCmp = (function () {
         }
     };
     PincodeCmp.prototype.delClick = function () {
-        this.codeArr.pop();
+        var i = this.codeArr.length - 1;
+        for (i; i > -1; i--) {
+            if (this.codeArr[i] !== null) {
+                this.codeArr[i] = null;
+                break;
+            }
+        }
     };
     PincodeCmp.prototype.restoreClick = function () {
         this.codeArr = new Array(this.maxLen);
