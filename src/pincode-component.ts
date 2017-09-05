@@ -250,12 +250,12 @@ export class PincodeCmp {
 
   getValues(): string {
 
-    let values:string = '';
-    this.codeArr.forEach( (e) => {
-        e && (values += e.toString());
-    });
+    //let values:string = '';
+    //this.codeArr.forEach( (e) => {
+    //    e && (values += e.toString());
+    //});
 
-    return this.d.encoded(values);
+    return this.d.encoded(this.codeArr.join(''));
   }
 
   ngOnDestroy() {
