@@ -117,11 +117,7 @@ export var PincodeCmp = (function () {
         return this._viewCtrl.dismiss(this.getValues(), role, opts);
     };
     PincodeCmp.prototype.getValues = function () {
-        var values = '';
-        this.codeArr.forEach(function (e) {
-            e && (values += e.toString());
-        });
-        return this.d.encoded(values);
+        return this.d.encoded(this.codeArr.join(''));
     };
     PincodeCmp.prototype.ngOnDestroy = function () {
         assert(this.gestureBlocker.blocked === false, 'gesture blocker must be already unblocked');
