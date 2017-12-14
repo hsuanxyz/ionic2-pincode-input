@@ -8,4 +8,5 @@ export interface PincodeOpt {
     cssClass?: string;
     encoded?: Function;
     passSize?: number;
+    hideToolbar?: boolean;
 }

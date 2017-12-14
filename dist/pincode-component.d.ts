@@ -1,5 +1,6 @@
 import { ElementRef, Renderer } from '@angular/core';
 import { GestureController, BlockerDelegate, ViewController, Platform, NavParams, Config } from 'ionic-angular';
+import { PincodeOpt } from './pincode-options';
 /**
  * @private
  */
@@ -10,17 +11,7 @@ export declare class PincodeCmp {
     private _plt;
     descId: string;
     stateExpression: string;
-    d: {
-        cssClass?: string;
-        title?: string;
-        enableBackdropDismiss?: boolean;
-        cancelButtonText?: string;
-        hideCancelButton?: boolean;
-        forgotPasswordText?: string;
-        hideForgotPassword?: boolean;
-        encoded?: Function;
-        passSize?: number;
-    };
+    d: PincodeOpt;
     codeArr: Array<number>;
     maxLen: number;
     enabled: boolean;
