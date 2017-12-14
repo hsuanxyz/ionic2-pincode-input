@@ -103,6 +103,7 @@ export class HomePage {
 | cancelButtonText| String        | `'cancel'`    | cancel button text    |
 | encoded         | Function      | ` (c) => {return c} ` | your encoded pin code function |
 | forgotPasswordText| String      | `'forgot password'`| forgot password text    |
+| hideToolbar| Boolean     | `false`       | is hide toolbar   |
 | hideForgotPassword| Boolean     | `false`       | is hide forgot password button   |
 | hideCancelButton | Boolean     | `false`       | is hide cancel button   |
 | enableBackdropDismiss| Boolean     | `true`       | Whether the alert should be dismissed by tapping the backdrop.  |
