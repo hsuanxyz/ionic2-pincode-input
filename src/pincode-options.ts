@@ -1,3 +1,6 @@
+export interface PincodePinHandler {
+    (pin: string): boolean
+}
 
 export interface PincodeOpt {
     title?:string,
@@ -9,5 +12,6 @@ export interface PincodeOpt {
     cssClass?:string,
     encoded?:Function,
     passSize?:number,
-    hideToolbar?: boolean
+    hideToolbar?: boolean,
+    pinHandler?: PincodePinHandler
 }
