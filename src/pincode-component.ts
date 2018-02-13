@@ -183,7 +183,17 @@ export class PincodeCmp {
             this.codeArr[emptyIndex] = num;
         } else if (emptyIndex === this.maxLen - 1) {
             this.codeArr[emptyIndex] = num;
-            this.dismiss('done')
+            if (this.d.pinHandler) {
+                // If we have a PIN handler, call it with the completed PIN.
+                if (this.d.pinHandler(this.getValues())) {
+                    this.dismiss('done');
+                } else {
+                    // Clear the PIN and don't dismiss.
+                    this.restoreClick();
+                }
+            } else {
+                this.dismiss('done');
+            }
         }
     }
 
