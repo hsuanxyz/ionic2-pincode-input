@@ -45,6 +45,7 @@ export var PincodeCmp = (function () {
         this.enabled = true;
     };
     PincodeCmp.prototype.numClick = function (num) {
+        var _this = this;
         if (num < 0 || num > 9)
             return;
         var emptyIndex = this.codeArr.indexOf(null);
@@ -53,7 +54,22 @@ export var PincodeCmp = (function () {
         }
         else if (emptyIndex === this.maxLen - 1) {
             this.codeArr[emptyIndex] = num;
-            this.dismiss('done');
+            // If we have a completed PIN handler,
+            // call it with the completed PIN.
+            if (this.d.pinHandler) {
+                this.d.pinHandler(this.getValues())
+                    .then(function () {
+                    // PIN is valid.
+                    _this.dismiss('done');
+                })
+                    .catch(function () {
+                    // PIN is invalid.
+                    _this.restoreClick();
+                });
+            }
+            else {
+                this.dismiss('done');
+            }
         }
     };
     PincodeCmp.prototype.delClick = function () {
