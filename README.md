@@ -91,14 +91,13 @@ export class HomePage {
 
 ```
 
-pinHandler example
+`pinHandler` example
+
 ```typescript
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { PincodeController } from  'ionic2-pincode-input/dist/pincode'
-import { PincodePinHandler } from 'ionic2-pincode-input/dist/pincode-options';
 
 @Component({
   selector: 'page-home',
@@ -107,49 +106,29 @@ import { PincodePinHandler } from 'ionic2-pincode-input/dist/pincode-options';
 export class HomePage {
 
   code:string;
-  correctPin: string;
+  private handlePIN: (pincode: string) => Promise<any> = (pincode: string) => {
+      if (pincode === '123456') {
+        // Do something
+        console.log('Too easy');
+        return Promise.reject('');
+      } else {
+        // Do something
+        return Promise.resolve();
+      }
+    };
 
   constructor(
     public navCtrl: NavController,
     public pincodeCtrl: PincodeController,
-    public alertCtrl: AlertController
   ) {
-      // Get your valid PIN here.
-      let correctPin = '1234';
-  }
 
-  handlePIN(outerThis: HomePage): PincodePinHandler {
-
-    return function(enteredPin: string): Promise<any> {
-      this.code = enteredPin;
-      return new Promise<any>((resolve, reject) => {
-        if (enteredPin != outerThis.correctPin) {
-          // PIN is wrong!
-          let alert = outerThis.alertCtrl.create({
-            title: 'Incorrect PIN',
-            subTitle: "The PIN you entered is incorrect.",
-            buttons: [{ text: 'OK', handler: data => { } }]
-          });
-
-          alert.present();
-
-          alert.onDidDismiss(() => { reject() });
-        } else {
-          // PIN is correct
-          // Navigate to wherever you want to go.
-          outerThis.navCtrl.setRoot(HomePage);
-
-          resolve();
-        }
-      });
-    }
   }
   
   openPinCode():any{
 
     let pinCode =  this.pincodeCtrl.create({
       title:'Pincode',
-      pinHandler: this.handlePIN(this);
+      pinHandler: this.handlePIN
     });
 
     pinCode.present();
