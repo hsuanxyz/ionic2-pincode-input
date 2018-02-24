@@ -9,38 +9,35 @@ A pin-code input for ionic2
 
 ![v](https://github.com/HsuanXyz/hsuanxyz.github.io/blob/master/assets/ionic2-pincode-input/pin-code.gif?raw=true)
 
+## Installation
 
+```bash
+$ npm install ionic2-pincode-input --save
+$ npm install @angular/animations --save
+```
 
-## install
-
-`npm install ionic2-pincode-input --save`
-
-## use
+## Usage
 
 app.module.ts
 ```typescript
-import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+
 ...
 
 import { PincodeInputModule } from  'ionic2-pincode-input';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    ...
-  ],
+  ...
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     PincodeInputModule,
-    IonicModule.forRoot(MyApp),
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    ...
-  ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+    IonicModule.forRoot(MyApp)
+  ]
+  ...
 })
 export class AppModule {}
 ```
