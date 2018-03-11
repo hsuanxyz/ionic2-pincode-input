@@ -13,4 +13,5 @@ export interface PincodeOpt {
     passSize?: number;
     hideToolbar?: boolean;
     pinHandler?: PincodePinHandler;
+    visibility?: boolean;
 }

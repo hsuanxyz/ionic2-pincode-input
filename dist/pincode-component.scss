@@ -86,19 +86,26 @@ ion-pincode{
     height: 32px;
     line-height: 32px;
     padding: 0;
-
+    text-align: center;
     &:nth-child(1){
       border-left: 0;
     }
   }
 
 
-  .pincode-input .pincode-input-row ion-col span.on {
+  .pincode-input .pincode-input-row ion-col span.obscured {
     width: 1em;
     height: 1em;
     border-radius: 1em;
-    background-color: #333;
     display: inline-block;
+    background-color: #eee;
+    &.filling {
+      background-color: #333;
+    }
+  }
+
+  .pincode-input .pincode-input-row ion-col span.code {
+    font-size: 1.2em;
   }
 
   .pincode-button-wrapper {
