@@ -5,7 +5,7 @@
 export interface PincodePinHandler {
     (pin: string): Promise<any>
 }
-    
+
 export interface PincodeOpt {
     title?:string,
     cancelButtonText?:string,
@@ -17,5 +17,6 @@ export interface PincodeOpt {
     encoded?:Function,
     passSize?:number,
     hideToolbar?: boolean,
-    pinHandler?: PincodePinHandler
+    pinHandler?: PincodePinHandler,
+    visibility?: boolean
 }

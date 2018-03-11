@@ -53,7 +53,8 @@ import { PincodeOpt } from './pincode-options';
                 <ion-grid class="pincode-input-grid">
                     <ion-row class="pincode-input-row">
                         <ion-col *ngFor="let item of codeArr; let i = index">
-                            <span class="obscured" [class.filling]="isNum(codeArr[i])"></span>
+                            <span *ngIf="!d.visibility || (!isNum(codeArr[i]))" class="obscured" [class.filling]="isNum(codeArr[i])"></span>
+                            <span *ngIf="d.visibility" class="code">{{item}}</span>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
