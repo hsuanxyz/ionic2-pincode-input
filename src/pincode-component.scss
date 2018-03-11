@@ -93,12 +93,15 @@ ion-pincode{
   }
 
 
-  .pincode-input .pincode-input-row ion-col span.on {
+  .pincode-input .pincode-input-row ion-col span.obscured {
     width: 1em;
     height: 1em;
     border-radius: 1em;
-    background-color: #333;
     display: inline-block;
+    background-color: #f2f2f2;
+    &.filling {
+      background-color: #333;
+    }
   }
 
   .pincode-button-wrapper {
