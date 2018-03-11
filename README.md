@@ -161,6 +161,7 @@ export class HomePage {
 | hideCancelButton | Boolean     | `false`       | is hide cancel button   |
 | enableBackdropDismiss| Boolean     | `true`       | Whether the alert should be dismissed by tapping the backdrop.  |
 | pinHandler| PincodePinHandler `(pin: string): Promise<any>`    | `null`       | Callback called when the PIN is complete. Returns a Promise which resolves if the PIN is valid.  |
+| visibility| Boolean  | `false`       | is show pin-code |
 
 [npm-url]: https://www.npmjs.com/package/ionic2-pincode-input
 [npm-image]: https://img.shields.io/npm/v/ionic2-pincode-input.svg
