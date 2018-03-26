@@ -2,16 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { App } from 'ionic-angular';
 import { PincodeCmp } from './pincode-component';
-import {isPresent, isFunction} from 'ionic-angular/util/util';
+import { isPresent, isFunction } from 'ionic-angular/util/util';
 import { NavOptions } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 
 import { PincodeOpt } from './pincode-options'
 
 
-/**
- * @private
- */
 export class PinCode extends ViewController {
   private _app: App;
 
@@ -19,10 +16,12 @@ export class PinCode extends ViewController {
     opts.enableBackdropDismiss = isPresent(opts.enableBackdropDismiss) ?
       !!opts.enableBackdropDismiss : true;
     opts.hideForgotPassword = isPresent(opts.hideForgotPassword) ?
-        !!opts.hideForgotPassword : false;
+      !!opts.hideForgotPassword : false;
     opts.hideCancelButton = isPresent(opts.hideCancelButton) ?
-        !!opts.hideCancelButton : false;
-    opts.encoded = isFunction(opts.encoded) ? opts.encoded : (c:string):string => { return c };
+      !!opts.hideCancelButton : false;
+    opts.encoded = isFunction(opts.encoded) ? opts.encoded : (c: string): string => {
+      return c
+    };
     opts.title = opts.title || 'Password';
     opts.cancelButtonText = opts.cancelButtonText || 'cancel';
     opts.forgotPasswordText = opts.forgotPasswordText || 'forgot password';
@@ -33,9 +32,6 @@ export class PinCode extends ViewController {
     this.isOverlay = true;
   }
 
-  /**
-  * @private
-  */
   getTransitionName(direction: string) {
     let key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
     //noinspection TypeScriptUnresolvedVariable
@@ -63,7 +59,8 @@ export class PinCode extends ViewController {
 @Injectable()
 export class PincodeController {
 
-  constructor(private _app: App) {}
+  constructor(private _app: App) {
+  }
 
   create(opts: PincodeOpt = {}): PinCode {
     return new PinCode(this._app, opts);
