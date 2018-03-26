@@ -7,26 +7,30 @@
   "scripts": {
     "ngc": "ngc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf aot dist && npm run ngc && gulp copy-scss"
+    "build": "rm -rf aot dist && npm run ngc && gulp copy-scss",
+    "packagr": "ng-packagr -p package.json"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/HsuanXyz/ionic2-pincode-input.git"
   },
   "devDependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/compiler-cli": "2.2.1",
-    "@angular/core": "2.2.1",
-    "@angular/forms": "2.2.1",
-    "@angular/http": "2.2.1",
-    "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
-    "@angular/platform-server": "2.2.1",
-    "ionic-angular": "2.0.0",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.26",
-    "typescript": "2.0.9"
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/compiler-cli": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "@angular/forms": "^5.2.9",
+    "@angular/http": "^5.2.9",
+    "@angular/platform-browser": "^5.2.9",
+    "@angular/platform-browser-dynamic": "^5.2.9",
+    "@angular/platform-server": "^5.2.9",
+    "ionic-angular": "3.9.2",
+    "rxjs": "5.5.7",
+    "zone.js": "0.8.20",
+    "typescript": "^2.7.2",
+    "ng-packagr": "^2.4.1",
+    "gulp": "^3.9.1"
+
   },
   "keywords": [
     "ionic2",
@@ -35,7 +39,10 @@
   ],
   "author": "HsuanLee",
   "license": "MIT",
-  "dependencies": {
-    "gulp": "^3.9.1"
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts"
+    }
   }
 }
