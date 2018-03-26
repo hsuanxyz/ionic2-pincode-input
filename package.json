@@ -1,6 +1,6 @@
 {
   "name": "ionic2-pincode-input",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A pincode input for ionic2",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
