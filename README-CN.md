@@ -5,6 +5,9 @@
 
 一个ionic2的PIN码输入组件
 
+[live demo](https://stackblitz.com/edit/ionic2-pincode-input)
+
+
 ![v](https://github.com/HsuanXyz/hsuanxyz.github.io/blob/master/assets/ionic2-pincode-input/pin-code.gif?raw=true)
 ## 安装
 

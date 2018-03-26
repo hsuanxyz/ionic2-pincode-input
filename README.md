@@ -6,6 +6,7 @@
 A pin-code input for ionic2
 
 [中文文档](https://github.com/HsuanXyz/ionic2-pincode-input/blob/master/README-CN.md)
+[live demo](https://stackblitz.com/edit/ionic2-pincode-input)
 
 ![v](https://github.com/HsuanXyz/hsuanxyz.github.io/blob/master/assets/ionic2-pincode-input/pin-code.gif?raw=true)
 
