@@ -110,7 +110,7 @@ import { PincodeOpt } from './pincode-options';
             </div>
         </div>
     `,
-    styleUrls: [/*'./pincode-component.scss'*/],
+    styleUrls: ['./pincode-component.scss'],
     host: {
         'role': 'dialog',
         '[attr.aria-labelledby]': 'hdrId',
