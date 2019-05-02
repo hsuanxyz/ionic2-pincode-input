@@ -2,11 +2,6 @@ import {
     Component,
     ElementRef,
     ViewEncapsulation,
-    trigger,
-    state,
-    animate,
-    transition,
-    style,
     Renderer2
 } from '@angular/core';
 
@@ -22,6 +17,7 @@ import {
 } from 'ionic-angular';
 import { assert, isNumber } from 'ionic-angular/util/util';
 import { PincodeOpt } from './pincode-options';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'ion-pincode',
